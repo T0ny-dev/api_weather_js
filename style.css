@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  margin-top: 20px;
+  width: 60px;
+}
+
+h1 {
+  font-size: 65px;
+  font-weight: 800;
+  text-align: center;
+}
+
+span {
+  color: #007eff;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 20px;
+  align-items: center;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: -2px 2px 5px 0px rgba(0,0,0,0.24);
+-webkit-box-shadow: -2px 2px 5px 0px rgba(0,0,0,0.24);
+-moz-box-shadow: -2px 2px 5px 0px rgba(0,0,0,0.24);
+}
+
+.weather h2 {
+  font-size: 50px;
+}
+
+.weather button {
+  width: 85%;
+}
+
+#country {
+  border-radius: 8px;
+  padding: 8px;
+  width: 80%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#city {
+  border-radius: 8px;
+  width: 80%;
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#weatherButton{
+  border: none;
+  padding: 10px;
+  width: 80%;
+  border-radius: 8px;
+  background-color: #007eff;
+  color: aliceblue;
+  cursor: pointer;
+}
