@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
- 
-  <title>Weather app</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<title>Weather app</title>
 </head>
+
 <body>
-  <img src="img/logo_weather.svg" alt="logo app" class="logo">
-  <h1>Authentic<br>
-  <span>Weather</span></h1>
-  <div class="weather">
-    <h2>--°C</h2>
-    <p>Max: --°C</p>
-    <p>Min: --°C</p>
-    <select name="" id="country">
-      <option disabled selected value="">Select Country</option>
-      <option value="AR">Argentina</option>
-      <option value="CO">Colombia</option>
-      <option value="CR">Costa Rica</option>
-      <option value="ES">España</option>
-      <option value="US">Estados Unidos</option>
-      <option value="MX">Mexico</option>
-      <option value="PE">Peru</option>
-    </select>
-    <input type="text" name="city" id="city" placeholder="Write your city">
-    <button id="weatherButton">Get weather</button>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="index.js"></script>
-    <h4>It's <span>--</span></h2>
-  </div>
+	<img src="img/logo_weather.svg" alt="logo app" class="logo">
+	<h1>Authentic<br>
+		<span>Weather</span>
+	</h1>
+	<div class="weather">
+		<div class="weather__title" id="weatherRandom">
+			<h2>If it <br>rains,<br> umbrella</h2>
+		</div>
+		<div class="weather__alert" id="alert">
+			<div><img src="img/signo-de-exclamacion.png" alt=""></div>
+			<p id="text--Alert"> Required fields</p>
+		</div>
+		<select name="" id="country">
+			<option disabled selected value="">Select Country</option>
+			<option value="AR">Argentina</option>
+			<option value="CO">Colombia</option>
+			<option value="CR">Costa Rica</option>
+			<option value="ES">España</option>
+			<option value="US">Estados Unidos</option>
+			<option value="MX">Mexico</option>
+			<option value="PE">Peru</option>
+		</select>
+		<input type="text" name="city" id="city" placeholder="Write your city">
+		<button class="weather__button" id="weatherButton">Get weather</button>
+		<h4>It's <span>great day</span></h2>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="weather.js"></script>
 </body>
+
 </html>
