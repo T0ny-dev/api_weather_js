@@ -12,14 +12,21 @@ const apiId = '194286018666bdc1aa1040bb8c019914';
 let randonPhrases = ["rains", "sunny", "freezing"];
 
 //functions
-const searchWeather = (city, country) => {
+const searchWeather = (city) => {
   return new Promise((resolve, reject) => {
-    resolve(axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiId}`));
-    reject(`We're sorry. cant find the country and city`); 
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiId}`)
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((error) => {
+        reject(error);
+    })
   })
 };
 
 const findWeather = (response) => {
+  console.log(response)
+  const country = response.data.sys.country;
   const name = response.data.name;
   const temperature = gradesKelvinToCentigrades(response.data.main.temp);
   const temperaturaMax = gradesKelvinToCentigrades(response.data.main.temp_max);
@@ -28,7 +35,7 @@ const findWeather = (response) => {
   const wind = response.data.wind.speed;
   const icon = response.data.weather[0].icon;
   weather[0].innerHTML = 
-    `<h3>${name} </h3>
+    `<h3>${name}, ${country} </h3>
     <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="icon">
     <h2>${temperature}°C</h2>
     <div class="weather__temperature">
@@ -63,23 +70,25 @@ function gradesKelvinToCentigrades(temperature) {
   return parseInt(temperature - 273.15);
 };
 
-function showWeather(button, nameCountry, nameCity) {
+function showWeather(button, nameCity) {
   button.addEventListener('click', () => {
-    searchWeather(nameCountry.value, nameCity.value)
-    .then(findWeather)
-    .catch(cantFindWeather);
-    validateFields(nameCity,nameCountry);
+    searchWeather(nameCity.value)
+      .then(findWeather)
+      .catch(cantFindWeather);
+    validateFields(nameCity);
   })
 };
 
-function validateFields (city, country) {
-  if (city.value === '' || country.value === '') {
+
+
+function validateFields (city) {
+  if (city.value === '') {
     alert.classList.add("weather__alert--visible");
     textAlert.innerHTML = "Required fields";
     setTimeout(function () {
     alert.classList.remove("weather__alert--visible");
     }, 2000);
-  }
+  } 
 };
 
 function phrasesRandom(array) {
@@ -103,3 +112,5 @@ function phrasesRandom(array) {
 //call functions
 showWeather(buttonWeather, country, city);
 phrasesRandom(randonPhrases);
+
+
