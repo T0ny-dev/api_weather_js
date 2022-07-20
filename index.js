@@ -105,7 +105,7 @@ function phrasesRandom(array) {
       phrasesWelcome[0].innerHTML = `<h2>If it <br>${phrases},<br> Jacket</h2>`
       break;
     default:
-    console.log('nothing here')
+    console.log('nothing here and error')
   }	
 };
 
