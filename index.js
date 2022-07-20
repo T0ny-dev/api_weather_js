@@ -23,7 +23,7 @@ const findWeather = (response) => {
   const name = response.data.name;
   const temperature = gradesKelvinToCentigrades(response.data.main.temp);
   const temperaturaMax = gradesKelvinToCentigrades(response.data.main.temp_max);
-  const TemperatureMin = gradesKelvinToCentigrades(response.data.main.temp_min);
+  const temperatureMin = gradesKelvinToCentigrades(response.data.main.temp_min);
   const status = response.data.weather[0].description;
   const wind = response.data.wind.speed;
   const icon = response.data.weather[0].icon;
@@ -34,7 +34,7 @@ const findWeather = (response) => {
     <div class="weather__temperature">
       <div class="weather__digit">
         <p>Max:${temperaturaMax}°C</p>
-        <p>Min:${TemperatureMin}°C</p>
+        <p>Min:${temperatureMin}°C</p>
       </div>
       <div class="weather__digit">
         <img src="img/viento.png" alt="">
